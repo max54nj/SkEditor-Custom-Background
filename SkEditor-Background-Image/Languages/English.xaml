@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    
+    <system:String x:Key="WelcomeTitle">Welcome!</system:String>
+    <system:String x:Key="WelcomeMessage">Welcome to {0}!</system:String>
+    
+    <system:String x:Key="SettingsWelcomeInfoLabel">Welcome to Background Image</system:String>
+    <system:String x:Key="SettingsShowWelcomeScreenOnStartupLabel">Show welcome screen at startup</system:String>
+    <system:String x:Key="SettingsShowWelcomeScreenOnStartupDescription">Shows a welcome popup everytime skeditor starts.</system:String>
+    <system:String x:Key="SettingsHotKeysLabel">Hotkeys</system:String>
+    <system:String x:Key="SettingsHotKeysDescription">Enable/disable your hotkeys.</system:String>
+    
+    <system:String x:Key="SettingsHotKeysPageTitle">Background Image - Hotkeys</system:String>
+    <system:String x:Key="SettingsHotKeysEnableWelcomeScreenHotKeyLabel">Welcome screen hotkey</system:String>
+    <system:String x:Key="SettingsHotKeysEnableWelcomeScreenHotKeyDescription">If enabled you can use Alt+W to show a welcome popup</system:String>
+    
+
+</ResourceDictionary>
