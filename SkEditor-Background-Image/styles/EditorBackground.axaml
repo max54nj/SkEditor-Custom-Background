@@ -1,8 +1,0 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <SolidColorBrush x:Key="EditorBackgroundColor">#10ffffff</SolidColorBrush>
-    <SolidColorBrush x:Key="TabViewSelectedItemBorderBrush">#10ffffff</SolidColorBrush>
-    <SolidColorBrush x:Key="TabViewItemHeaderBackgroundSelected">#10ffffff</SolidColorBrush>
-
-</ResourceDictionary>

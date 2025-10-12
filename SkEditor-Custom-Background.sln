@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundImageAddon", "SkEditor-Background-Image\BackgroundImageAddon.csproj", "{9ABBDCF9-9098-4B03-9496-BC2A6FEDCC93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomBackgroundAddon", "SkEditor-Custom-Background\CustomBackgroundAddon.csproj", "{9ABBDCF9-9098-4B03-9496-BC2A6FEDCC93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
