@@ -7,57 +7,7 @@ namespace BackgroundImageAddon.Utilities;
 
 public class StyleOverrides
 {
-    private static Dictionary<object, object?>? _originalResources;
-    
-    public static void Apply()
-    {
-        if (Application.Current == null) return;
-
-        var styleOverrideResources =
-            AvaloniaXamlLoader.Load(new
-                                        Uri($"avares://{BackgroundImageAddon.Instance.Identifier}/styles/EditorBackground.axaml")) as ResourceDictionary;
-
-        if (styleOverrideResources != null)
-        {
-            _originalResources = new Dictionary<object, object?>();
-            
-            foreach (var key in styleOverrideResources.Keys)
-            {
-                if (Application.Current.Resources.TryGetResource(key, null, out var originalValue))
-                {
-                    _originalResources[key] = originalValue;
-                }
-            
-                if (Application.Current.Resources.ContainsKey(key))
-                {
-                    Application.Current.Resources.Remove(key);
-                }
-                Application.Current.Resources.Add(key, styleOverrideResources[key]);
-            }
-        }
-    }
-    
-    public static void Remove()
-    {
-        if (Application.Current == null || _originalResources == null) return;
-
-        foreach (var (key, originalValue) in _originalResources)
-        {
-            if (Application.Current.Resources.ContainsKey(key))
-            {
-                Application.Current.Resources.Remove(key);
-            }
-        
-            if (originalValue != null)
-            {
-                Application.Current.Resources.Add(key, originalValue);
-            }
-        }
-    
-        _originalResources = null;
-    }
-    
-    /*private static Dictionary<string, Dictionary<object, object?>?> _originalResources = new();
+    private static Dictionary<string, Dictionary<object, object?>?> _originalResources = new();
 
     public static void Apply(string fileName)
     {
@@ -118,5 +68,5 @@ public class StyleOverrides
         }
     
         _originalResources[fileName] = null;
-    }*/
+    }
 }

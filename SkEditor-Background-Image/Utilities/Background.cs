@@ -9,7 +9,7 @@ public class Background
         var settings = Settings.Settings.Instance;
         
         BackgroundImage.Load();
-        StyleOverrides.Apply();
+        StyleOverrides.Apply("EditorBackground");
 
         // if (settings.TransparentBackground)
         // {
@@ -45,10 +45,9 @@ public class Background
 
     public static void Unregister()
     {
-        // StyleOverrides.RemoveAll();
+        StyleOverrides.RemoveAll();
         
         BackgroundImage.Remove();
-        StyleOverrides.Remove();
     }
     
     public static async Task Reload()
