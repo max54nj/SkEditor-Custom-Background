@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    
+    <system:String x:Key="SettingsBackgroundImageLabel">Hintergrund Bild</system:String>
+    <system:String x:Key="SettingsBackgroundImageDescription">Wähle ein Hintergrundbild, dass du verwänden willst.</system:String>
+    <system:String x:Key="SettingsBackgroundImageSelectWindowTitle">Wähle ein Hintergrundbild</system:String>
+    <system:String x:Key="SettingsKeepEditorBackgroundLabel">Editor-Hintergrund beibehalten</system:String>
+    <system:String x:Key="SettingsKeepEditorBackgroundDescription">Wenn aktiviert, wird das Editor-Feld, indem Code geschrieben wird, nicht transparent.</system:String>
+    <system:String x:Key="SettingsTransparentBackgroundLabel">Transparenter Hintergrund</system:String>
+    <system:String x:Key="SettingsTransparentBackgroundDescription">Wenn aktiviert, wird der Hintergrund entfernt und du kannst Deine anderen Apps sehen.</system:String>
+
+</ResourceDictionary>
