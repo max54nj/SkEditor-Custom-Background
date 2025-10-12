@@ -51,16 +51,14 @@ public class BackgroundImageAddon : IAddon
         Instance = this;
 
         Settings.Load();
+        
+        Utilities.Events.Register();
 
         Resources.ExtractLanguages();
 
         await Translation.ChangeLanguage(SkEditorAPI.Core.GetAppConfig().Language);
 
-        Utilities.Events.Register();
-        
-        Resources.ApplyStyleOverrides();
-        
-        Resources.LoadBackgroundImageFromAssets();
+        Background.Register();
 
         SkEditorAPI.Logs.Info("Successfully enabled Background Image Addon!");
     }
@@ -68,6 +66,7 @@ public class BackgroundImageAddon : IAddon
     public void OnDisable()
     {
         Utilities.Events.Unregister();
+        Background.Unregister();
     }
 
     public List<Setting> GetSettings()
@@ -77,6 +76,15 @@ public class BackgroundImageAddon : IAddon
             new(Instance, Translation.Get("SettingsBackgroundImageLabel"), "BackgroundImage",
                 true, new FileSelectSetting(), Translation.Get("SettingsBackgroundImageDescription"),
                 new FluentIconSource { Icon = Icon.Image }),
+            new(Instance, Translation.Get("SettingsKeepEditorBackgroundLabel"), "KeepEditorBackground",
+                false, new ToggleSetting(),
+                Translation.Get("SettingsKeepEditorBackgroundDescription"),
+                new FluentIconSource { Icon = Icon.ColorBackground }),
+            
+            new(Instance, Translation.Get("SettingsTransparentBackgroundLabel"), "TransparentBackground",
+                false, new ToggleSetting(),
+                Translation.Get("SettingsTransparentBackgroundDescription"),
+                new FluentIconSource { Icon = Icon.Eye })
         ];
 
         return settings;

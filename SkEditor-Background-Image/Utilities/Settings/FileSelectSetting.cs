@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Platform.Storage;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Input;
 using FluentAvalonia.UI.Controls;
 using Newtonsoft.Json.Linq;
@@ -48,6 +49,8 @@ public class FileSelectSetting : ISettingType
                 }
                 
                 File.Copy(filePath, Path.Join(Settings.AppDataFolderPath, "background.png"), true);
+                
+                Dispatcher.UIThread.Post(async void () => await Background.Reload());
             })
         };
     }

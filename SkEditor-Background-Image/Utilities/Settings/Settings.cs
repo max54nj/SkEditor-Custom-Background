@@ -5,8 +5,9 @@ namespace BackgroundImageAddon.Utilities.Settings;
 
 public partial class Settings : ObservableObject
 {
-    [ObservableProperty] private bool _showWelcomeScreenOnStartup = true;
-
+    [ObservableProperty] private bool _keepEditorBackground = false;
+    [ObservableProperty] private bool _transparentBackground = false;
+    
     public static string AppDataFolderPath { get; } =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SkEditor", "Addons",
                      BackgroundImageAddon.Instance.Identifier);
