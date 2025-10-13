@@ -25,7 +25,7 @@ public class ToggleSetting : ISettingType
             Settings.Instance.KeepEditorBackground = toggle.IsChecked ?? false;
             Settings.Instance.Save();
             
-            Background.Reload();
+            CustomBackgroundAddon.Reload();
             
         };
         return toggle;

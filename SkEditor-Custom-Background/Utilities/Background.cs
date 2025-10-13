@@ -1,4 +1,5 @@
-﻿using Avalonia.Threading;
+﻿using Avalonia.Media;
+using Avalonia.Threading;
 using SkEditor.API;
 
 namespace CustomBackgroundAddon.Utilities;
@@ -14,26 +15,18 @@ public class Background
 
         if (!settings.KeepEditorBackground)
         {
-            StyleOverrides.Apply("EditorBackground");
+            StyleOverrides.Apply(
+                ["EditorBackgroundColor", "TabViewSelectedItemBorderBrush", "TabViewItemHeaderBackgroundSelected"], 
+                new SolidColorBrush(Color.Parse("#10ffffff"))
+            );
         }
-        
-        
     }
 
     public static void Unregister()
     {
-        StyleOverrides.RemoveAll();
+        StyleOverrides.RestoreAll();
         
         BackgroundImage.Remove();
-    }
-    
-    public static void Reload()
-    {
-        Dispatcher.UIThread.Post(async () =>
-        {
-            await SkEditorAPI.Addons.DisableAddon(CustomBackgroundAddon.Instance);
-            await SkEditorAPI.Addons.EnableAddon(CustomBackgroundAddon.Instance);
-        });
     }
 
     public static void Setup()

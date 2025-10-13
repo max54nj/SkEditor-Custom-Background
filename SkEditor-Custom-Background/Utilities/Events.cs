@@ -47,6 +47,6 @@ public static class Events
      
         SkEditorAPI.Logs.Info($"Reloading {CustomBackgroundAddon.Instance.Name} Addon due to setting changes...");
 
-        Background.Reload();
+        CustomBackgroundAddon.Reload();
     }
 }

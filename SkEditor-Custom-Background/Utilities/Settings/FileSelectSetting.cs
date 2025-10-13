@@ -64,7 +64,7 @@ public class FileSelectSetting : ISettingType
             Settings.Instance.Save();
             CustomAddonSettingsPage.Load(CustomBackgroundAddon.Instance);
             
-            Background.Reload();
+            CustomBackgroundAddon.Reload();
         };
 
         var button = new Button();
@@ -97,7 +97,7 @@ public class FileSelectSetting : ISettingType
             Settings.Instance.CurrentBackgroundPath = filePath;
             Settings.Instance.Save();
             CustomAddonSettingsPage.Load(CustomBackgroundAddon.Instance);
-            Background.Reload();
+            CustomBackgroundAddon.Reload();
         });
         
         stackPanel.Children.Add(comboBox);

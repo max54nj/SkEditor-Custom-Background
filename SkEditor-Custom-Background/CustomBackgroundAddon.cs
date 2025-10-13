@@ -2,6 +2,7 @@
 using CustomBackgroundAddon.Utilities;
 using Avalonia.Platform;
 using Avalonia.Svg.Skia;
+using Avalonia.Threading;
 using FluentAvalonia.UI.Controls;
 using CustomBackgroundAddon.Utilities.Settings;
 using FluentIcons.Avalonia.Fluent;
@@ -89,5 +90,14 @@ public class CustomBackgroundAddon : IAddon
         ];
 
         return settings;
+    }
+    
+    public static void Reload()
+    {
+        Dispatcher.UIThread.Post(async () =>
+        {
+            await SkEditorAPI.Addons.DisableAddon(CustomBackgroundAddon.Instance);
+            await SkEditorAPI.Addons.EnableAddon(CustomBackgroundAddon.Instance);
+        });
     }
 }
