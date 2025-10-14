@@ -3,6 +3,9 @@ using CustomBackgroundAddon.Utilities;
 using Avalonia.Platform;
 using Avalonia.Svg.Skia;
 using Avalonia.Threading;
+using BookbinderLib;
+using BookbinderLib.Translation;
+using CustomBackgroundAddon.Lib;
 using FluentAvalonia.UI.Controls;
 using CustomBackgroundAddon.Utilities.Settings;
 using FluentIcons.Avalonia.Fluent;
@@ -59,6 +62,9 @@ public class CustomBackgroundAddon : IAddon
 
         await Translation.ChangeLanguage(SkEditorAPI.Core.GetAppConfig().Language);
 
+        Translator.Register(this.Identifier, "English", "test1", "Test-1-EN");
+        Translator.Register(this.Identifier, "German", "test1", "Test-1-DE");
+
         Background.Setup();
         Background.Register();
 
@@ -75,7 +81,7 @@ public class CustomBackgroundAddon : IAddon
     {
         List<Setting> settings =
         [
-            new(Instance, Translation.Get("SettingsBackgroundImageLabel"), "BackgroundImage",
+            new(Instance, Translator.Get("test1"), "BackgroundImage",
                 null!, new FileSelectSetting(), Translation.Get("SettingsBackgroundImageDescription"),
                 new FluentIconSource { Icon = Icon.Image }),
             new(Instance, Translation.Get("SettingsKeepEditorBackgroundLabel"), "KeepEditorBackground",
@@ -90,6 +96,14 @@ public class CustomBackgroundAddon : IAddon
         ];
 
         return settings;
+    }
+
+    public List<IDependency> GetDependencies()
+    {
+        return
+        [
+            new AddonDependency("de.max54nj.bookbinder", "1.0.0")
+        ];
     }
     
     public static void Reload()

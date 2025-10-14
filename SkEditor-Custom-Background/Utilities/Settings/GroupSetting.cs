@@ -26,7 +26,7 @@ public class GroupSetting
     public void SetupExpander(SettingsExpander expander, Setting setting)
     {
         expander.IsClickEnabled = true;
-        expander.Click += (_, _) => SettingsWindow.NavigateToPage(typeof(TerminalAddonTerminalsSettingsPage));
+        // expander.Click += (_, _) => SettingsWindow.NavigateToPage(typeof(TerminalAddonTerminalsSettingsPage));
     }
 
     public bool IsSelfManaged => true;
