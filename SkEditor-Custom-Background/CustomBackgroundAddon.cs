@@ -2,14 +2,12 @@
 using CustomBackgroundAddon.Utilities;
 using Avalonia.Platform;
 using Avalonia.Svg.Skia;
-using Avalonia.Threading;
 using FluentAvalonia.UI.Controls;
 using CustomBackgroundAddon.Utilities.Settings;
 using FluentIcons.Avalonia.Fluent;
 using FluentIcons.Common;
 using SkEditor.API.Settings;
 using SkEditor.API.Settings.Types;
-using ToggleSetting = CustomBackgroundAddon.Utilities.Settings.ToggleSetting;
 
 namespace CustomBackgroundAddon;
 
@@ -103,12 +101,15 @@ public class CustomBackgroundAddon : IAddon
                 5, 
                 new SliderSetting(0.0, 100.0, 1.0, true, true), 
                 Translation.Get("SettingsBackgroundOpacityDescription"), 
-                new FluentIconSource() { Icon = Icon.Blur})
+                new FluentIconSource() { Icon = Icon.TransparencySquare}),
             
-            // new(Instance, Translation.Get("SettingsTransparentBackgroundLabel"), "TransparentBackground",
-            //     false, new ToggleSetting(),
-            //     Translation.Get("SettingsTransparentBackgroundDescription"),
-            //     new FluentIconSource { Icon = Icon.Eye })
+            new(Instance,
+                Translation.Get("SettingsBackgroundBlurLabel"),
+                "BackgroundBlur",
+                0,
+                new SliderSetting(0.0, 100.0, 1.0, true, true),
+                Translation.Get("SettingsBackgroundBlurDescription"),
+                new FluentIconSource() { Icon = Icon.Blur}),
         ];
 
         return settings;

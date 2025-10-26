@@ -1,7 +1,7 @@
 ﻿using Avalonia.Media;
 using Avalonia.Media.Imaging;
-using Avalonia.Media.Immutable;
 using Avalonia.Threading;
+using CustomBackgroundAddon.Utilities.Image;
 using SkEditor.API;
 using SkEditor.Utilities.Styling;
 
@@ -10,6 +10,7 @@ namespace CustomBackgroundAddon.Utilities;
 public static class BackgroundImage
 {
     private static IBrush? _originalBackground;
+    private static Bitmap? _currentBitmap;
 
     public static void Load()
     {
@@ -29,26 +30,40 @@ public static class BackgroundImage
 
         _originalBackground ??= mainWindow.Background;
 
-        var bitmap = new Bitmap(filePath);
-        var brush = new ImageBrush(bitmap)
+        _ = Dispatcher.UIThread.InvokeAsync(() =>
         {
-            Stretch = Stretch.UniformToFill,
-            AlignmentX = AlignmentX.Center,
-            AlignmentY = AlignmentY.Center
-        };
+            var backgroundBlur = (float)Settings.Settings.Instance.BackgroundBlur;
+            
+            var blurredBitmap = Blur.ApplyBlur(filePath, backgroundBlur);
+            if (blurredBitmap == null)
+            {
+                SkEditorAPI.Logs.Warning("Failed to decode image: " + filePath);
+                return;
+            }
 
-        mainWindow.Background = brush;
+            _currentBitmap?.Dispose();
+            _currentBitmap = blurredBitmap;
+
+            mainWindow.Background = new ImageBrush(blurredBitmap)
+            {
+                Stretch = Stretch.UniformToFill, 
+                AlignmentX = AlignmentX.Center, 
+                AlignmentY = AlignmentY.Center,
+            };
+        });
     }
 
     public static void Remove()
     {
         var mainWindow = SkEditorAPI.Windows.GetMainWindow();
         if (mainWindow == null) return;
-        Dispatcher.UIThread.Post(async () =>
+        Dispatcher.UIThread.Post(() =>
         {
-            // await ThemeEditor.ReloadCurrentTheme();
             mainWindow.Background = ThemeEditor.CurrentTheme.BackgroundColor;
         });
+        
+        _currentBitmap?.Dispose();
+        _currentBitmap = null;
         _originalBackground = null;
     }
 
