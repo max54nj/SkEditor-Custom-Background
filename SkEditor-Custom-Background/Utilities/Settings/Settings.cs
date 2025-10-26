@@ -7,6 +7,7 @@ public partial class Settings : ObservableObject
 {
     [ObservableProperty] private bool _keepEditorBackground = true;
     [ObservableProperty] private string _currentBackgroundPath = "";
+    [ObservableProperty] private double _backgroundOpacity = 5.0;
     // [ObservableProperty] private bool _transparentBackground = false;
     
     public static string AppDataFolderPath { get; } =

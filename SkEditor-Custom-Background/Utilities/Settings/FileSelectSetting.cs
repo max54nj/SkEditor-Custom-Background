@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 using SkEditor.API;
 using SkEditor.API.Settings;
 using SkEditor.API.Settings.Types;
-using SkEditor.Views.Settings;
+using SkEditor.Views.Windows.Settings;
 using Symbol = FluentIcons.Common.Symbol;
 using SymbolIcon = FluentIcons.Avalonia.SymbolIcon;
 
