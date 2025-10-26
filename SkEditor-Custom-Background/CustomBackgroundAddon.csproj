@@ -5,8 +5,9 @@
         <RootNamespace>CustomBackgroundAddon</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <AssemblyName>de.max54nj.customBackground</AssemblyName>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -26,9 +27,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.7" />
+        <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.8" />
         <PackageReference Include="Avalonia.Svg.Skia" Version="11.3.0" />
-        <PackageReference Include="FluentIcons.Avalonia.Fluent" Version="1.1.311" />
+        <PackageReference Include="FluentIcons.Avalonia.Fluent" Version="1.1.312" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
         <PackageReference Include="Svg.Skia" Version="3.2.1" />
     </ItemGroup>
