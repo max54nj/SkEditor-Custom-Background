@@ -7,7 +7,9 @@
     <system:String x:Key="SettingsBackgroundImageSelectWindowTitle">Choose a background image</system:String>
     <system:String x:Key="SettingsKeepEditorBackgroundLabel">Keep Editor Background</system:String>
     <system:String x:Key="SettingsKeepEditorBackgroundDescription">If enabled, the editor field, where you write your code, won't be transparent.</system:String>
-    <system:String x:Key="SettingsTransparentBackgroundLabel">Transparent Background</system:String>
-    <system:String x:Key="SettingsTransparentBackgroundDescription">If enabled, your background image will get removed and you can see you other apps.</system:String>
+    <system:String x:Key="SettingsBackgroundOpacityLabel">Background Opacity</system:String>
+    <system:String x:Key="SettingsBackgroundOpacityDescription">Defines how transparent the editor and other surfaces are.</system:String>
+    <system:String x:Key="SettingsBackgroundBlurLabel">Background Blur</system:String>
+    <system:String x:Key="SettingsBackgroundBlurDescription">Sets the blur level of the background image.</system:String>
 
 </ResourceDictionary>
