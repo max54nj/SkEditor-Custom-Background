@@ -27,12 +27,9 @@ public class FileSelectSetting : ISettingType
 
     public Control CreateControl(object value, Action<object> onChanged)
     {
-        var stackPanel = new StackPanel();
-        stackPanel.Orientation = Orientation.Horizontal;
-        stackPanel.Spacing = 10;
-            
-        var comboBox = new ComboBox();
-        comboBox.PlaceholderText = "Select";
+        var stackPanel = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 10 };
+
+        var comboBox = new ComboBox { PlaceholderText = "Select" };
         comboBox.Items.Add(new ComboBoxItem()
         {
             Content = "None",
@@ -67,39 +64,38 @@ public class FileSelectSetting : ISettingType
             Background.Reload();
         };
 
-        var button = new Button();
-        button.Content = new SymbolIcon() { Symbol = Symbol.Add };
-        button.Command = new RelayCommand(async () =>
-        {
-            var filePath = await SkEditorAPI.Windows.AskForFile(new FilePickerOpenOptions()
-            {
-                Title =
-                    Translation
-                        .Get("SettingsBackgroundImageSelectWindowTitle"),
-                AllowMultiple = false,
-                FileTypeFilter = [
-                    // new FilePickerFileType("Supported Image Formats")
-                    // {
-                    //     // Patterns = ["*.png", "*.jpg", "*.jpeg"]
-                    // }
-                ]
-            });
+        var button = new Button { Content = new SymbolIcon() { Symbol = Symbol.Add }, Command = new RelayCommand(async () =>
+         {
+             var filePath = await SkEditorAPI.Windows.AskForFile(new FilePickerOpenOptions()
+             {
+                 Title =
+                     Translation
+                         .Get("SettingsBackgroundImageSelectWindowTitle"),
+                 AllowMultiple = false,
+                 FileTypeFilter = [
+                     new FilePickerFileType("Supported Image Formats")
+                     {
+                         Patterns = ["*.png", "*.jpg", "*.jpeg", "*.webp", "*.gif", "*.ico", "*.bmp"]
+                     }
+                 ]
+             });
 
-            if (filePath is null)
-            {
-                return;
-            }
+             if (filePath is null)
+             {
+                 return;
+             }
                 
-            filePath = Uri.UnescapeDataString(filePath);
+             filePath = Uri.UnescapeDataString(filePath);
                 
-            File.Copy(filePath, Path.Join(Settings.BackgroundFolderPath, Path.GetFileName(filePath)), false);
+             File.Copy(filePath, Path.Join(Settings.BackgroundFolderPath, Path.GetFileName(filePath)), false);
 
-            Settings.Instance.CurrentBackgroundPath = filePath;
-            Settings.Instance.Save();
-            CustomAddonSettingsPage.Load(CustomBackgroundAddon.Instance);
-            Background.Reload();
-        });
-        
+             Settings.Instance.CurrentBackgroundPath = filePath;
+             Settings.Instance.Save();
+             CustomAddonSettingsPage.Load(CustomBackgroundAddon.Instance);
+             Background.Reload();
+         })
+        };
+
         stackPanel.Children.Add(comboBox);
         stackPanel.Children.Add(button);
 

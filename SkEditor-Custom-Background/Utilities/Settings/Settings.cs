@@ -5,9 +5,10 @@ namespace CustomBackgroundAddon.Utilities.Settings;
 
 public partial class Settings : ObservableObject
 {
-    [ObservableProperty] private bool _keepEditorBackground = true;
+    [ObservableProperty] private bool _keepEditorBackground = false;
     [ObservableProperty] private string _currentBackgroundPath = "";
-    // [ObservableProperty] private bool _transparentBackground = false;
+    [ObservableProperty] private double _backgroundOpacity = 5.0;
+    [ObservableProperty] private double _backgroundBlur = 0.0;
     
     public static string AppDataFolderPath { get; } =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SkEditor", "Addons",

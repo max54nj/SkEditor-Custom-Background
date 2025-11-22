@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomBackgroundAddon", "SkEditor-Custom-Background\CustomBackgroundAddon.csproj", "{9ABBDCF9-9098-4B03-9496-BC2A6FEDCC93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkEditor", "..\SkEditor\SkEditor\SkEditor.csproj", "{B5ABEAB1-F000-48CB-9BC0-B196E1BCCBD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{9ABBDCF9-9098-4B03-9496-BC2A6FEDCC93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ABBDCF9-9098-4B03-9496-BC2A6FEDCC93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ABBDCF9-9098-4B03-9496-BC2A6FEDCC93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5ABEAB1-F000-48CB-9BC0-B196E1BCCBD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5ABEAB1-F000-48CB-9BC0-B196E1BCCBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5ABEAB1-F000-48CB-9BC0-B196E1BCCBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5ABEAB1-F000-48CB-9BC0-B196E1BCCBD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

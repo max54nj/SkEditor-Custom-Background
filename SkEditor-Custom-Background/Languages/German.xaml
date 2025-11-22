@@ -7,7 +7,9 @@
     <system:String x:Key="SettingsBackgroundImageSelectWindowTitle">Wähle ein Hintergrundbild</system:String>
     <system:String x:Key="SettingsKeepEditorBackgroundLabel">Editor-Hintergrund beibehalten</system:String>
     <system:String x:Key="SettingsKeepEditorBackgroundDescription">Wenn aktiviert, wird das Editor-Feld, indem Code geschrieben wird, nicht transparent.</system:String>
-    <system:String x:Key="SettingsTransparentBackgroundLabel">Transparenter Hintergrund</system:String>
-    <system:String x:Key="SettingsTransparentBackgroundDescription">Wenn aktiviert, wird der Hintergrund entfernt und du kannst Deine anderen Apps sehen.</system:String>
+    <system:String x:Key="SettingsBackgroundOpacityLabel">Hintergrund Transparenz</system:String>
+    <system:String x:Key="SettingsBackgroundOpacityDescription">Setzt, wie durchsichtig das Editor-Feld und andere Oberflächen sind.</system:String>
+    <system:String x:Key="SettingsBackgroundBlurLabel">Hintergrund Schärfe</system:String>
+    <system:String x:Key="SettingsBackgroundBlurDescription">Definiert, wie scharf/unscharf das Hintergrundbild ist.</system:String>
 
 </ResourceDictionary>
