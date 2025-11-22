@@ -29,7 +29,7 @@ public class CustomBackgroundAddon : IAddon
 
     public string? Description => "Custom background images for SkEditor!";
 
-    public Version GetMinimalSkEditorVersion() => new(2, 9, 4);
+    public Version GetMinimalSkEditorVersion() => new(2, 9, 3);
 
     public IconSource GetAddonIcon()
     {

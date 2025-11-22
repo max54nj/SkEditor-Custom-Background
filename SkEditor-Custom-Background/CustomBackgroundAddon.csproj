@@ -26,11 +26,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.8" />
+        <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.0" />
         <PackageReference Include="Avalonia.Svg.Skia" Version="11.3.0" />
-        <PackageReference Include="FluentIcons.Avalonia.Fluent" Version="1.1.312" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-        <PackageReference Include="Svg.Skia" Version="3.2.1" />
+        <PackageReference Include="FluentIcons.Avalonia.Fluent" Version="1.1.303" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Svg.Skia" Version="3.0.3" />
     </ItemGroup>
 
     <ItemGroup>
