@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System.Diagnostics;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
@@ -8,6 +9,19 @@ public class StyleOverrides
 {
     private static Dictionary<string, Dictionary<object, object?>?> _originalResources = new();
     private static Dictionary<object, object?> _originalManualResources = new();
+
+    public static void Init()
+    {
+        if (Application.Current?.Resources == null)
+        {
+            return;
+        }
+
+        foreach (KeyValuePair<object, object?> keyValuePair in Application.Current.Resources)
+        {
+            _originalManualResources[keyValuePair.Key] = keyValuePair.Value;
+        }
+    }
 
     public static void ApplyFile(string fileName)
     {
@@ -25,22 +39,15 @@ public class StyleOverrides
                 _originalResources[fileName]![key] = originalValue;
             }
             
-            Application.Current.Resources.Remove(key);
-            Application.Current.Resources.Add(key, styleOverrideResources[key]);
+            Application.Current.Resources[key] = styleOverrideResources[key];
         }
     }
 
     public static void Apply(object key, object value)
     {
         if (Application.Current == null) return;
-
-        if (Application.Current.Resources.TryGetResource(key, null, out var originalValue))
-        {
-            _originalManualResources[key] = originalValue;
-        }
         
-        Application.Current.Resources.Remove(key);
-        Application.Current.Resources.Add(key, value);
+        Application.Current.Resources[key] = value;
     }
     
     public static void RemoveAll()
@@ -83,11 +90,13 @@ public class StyleOverrides
         
         if (!_originalManualResources.TryGetValue(key, out var originalValue)) return;
 
-        Application.Current.Resources.Remove(key);
-
         if (originalValue != null)
         {
-            Application.Current.Resources.Add(key, originalValue);
+            Application.Current.Resources[key] = originalValue;
+        }
+        else
+        {
+            Application.Current.Resources.Remove(key);
         }
         
         _originalManualResources.Remove(key);

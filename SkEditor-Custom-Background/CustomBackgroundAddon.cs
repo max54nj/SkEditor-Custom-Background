@@ -58,6 +58,7 @@ public class CustomBackgroundAddon : IAddon
 
         await Translation.ChangeLanguage(SkEditorAPI.Core.GetAppConfig().Language);
 
+        StyleOverrides.Init();
         Background.Setup();
         Background.Register();
 
